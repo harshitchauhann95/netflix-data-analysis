@@ -2,10 +2,11 @@
 
 # 🎬 Netflix Data Analysis
 
-### Exploratory Data Analysis & Visualization of Netflix's Global Content Catalog
+### Exploratory Data Analysis, Visualization & Recommendation Engine for Netflix's Global Catalog
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io/)
 [![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?style=for-the-badge&logo=jupyter&logoColor=white)](https://jupyter.org/)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 [![Last Commit](https://img.shields.io/github/last-commit/harshitchauhann95/netflix-data-analysis?style=for-the-badge)](https://github.com/harshitchauhann95/netflix-data-analysis/commits/main)
@@ -25,7 +26,6 @@
 - [Installation](#-installation)
 - [Usage](#-usage)
 - [Methodology](#-methodology)
-- [Results & Visualizations](#-results--visualizations)
 - [Roadmap](#-roadmap)
 - [Contributing](#-contributing)
 - [License](#-license)
@@ -35,7 +35,7 @@
 
 ## 🧭 Overview
 
-**Netflix Data Analysis** is an end-to-end exploratory data analysis (EDA) project that dives into Netflix's global content catalog to uncover patterns in content type, genre distribution, regional production, ratings, and growth over time.
+**Netflix Data Analysis** is an end-to-end exploratory data analysis (EDA) and machine learning vector matching project that dives into Netflix's global content catalog to uncover patterns in content type, genre distribution, regional production, ratings, and growth over time.
 
 The goal is to answer questions like:
 
@@ -43,7 +43,7 @@ The goal is to answer questions like:
 - 🎭 Which genres and content types dominate the platform?
 - 🌍 Which countries produce the most Netflix content?
 - 🔞 How is content distributed across maturity ratings?
-- ⏱️ How has average movie/show duration changed over time?
+- 🍿 How can vector space distance match similar titles in an interactive web application?
 
 ---
 
@@ -51,13 +51,11 @@ The goal is to answer questions like:
 
 | Metric | Insight |
 |---|---|
-| 🎬 Content Split | _e.g. 70% Movies / 30% TV Shows_ |
-| 📅 Peak Growth Year | _e.g. Content additions peaked in 2019_ |
-| 🌎 Top Country | _e.g. United States leads content production_ |
-| 🔞 Most Common Rating | _e.g. TV-MA is the most frequent rating_ |
-| ⏳ Avg. Movie Duration | _e.g. ~99 minutes_ |
-
-> Update this table with your actual findings once analysis is complete.
+| 🎬 Content Split | 69.69% Movies / 30.31% TV Shows |
+| 📅 Peak Growth Year | Content additions peaked between 2018–2020 |
+| 🌎 Top Country | United States (followed by India & United Kingdom) |
+| 🔞 Most Common Rating | TV-MA (Adults) & TV-14 |
+| ⚡ Search Engine | Euclidean Distance Vector Space in Streamlit App |
 
 ---
 
@@ -68,8 +66,9 @@ The goal is to answer questions like:
 | Category | Tools |
 |---|---|
 | **Language** | Python 3.10+ |
-| **Data Handling** | Pandas, NumPy |
+| **Data Handling** | Pandas, NumPy, Scikit-Learn |
 | **Visualization** | Matplotlib, Seaborn, Plotly |
+| **Web Framework** | Streamlit |
 | **Environment** | Jupyter Notebook |
 | **Version Control** | Git & GitHub |
 
@@ -83,17 +82,19 @@ The goal is to answer questions like:
 netflix-data-analysis/
 ├── assets/                # Logo, images, demo screenshots
 ├── data/
-│   ├── raw/                # Original unmodified dataset(s)
-│   └── processed/          # Cleaned & transformed data
+│   ├── raw/                # Original unmodified dataset(s) (netflix_titles.csv)
+│   └── processed/          # Cleaned & transformed data (netflix_cleaned.csv)
 ├── notebooks/
 │   ├── 01_data_cleaning.ipynb
 │   ├── 02_exploratory_analysis.ipynb
 │   └── 03_visualization.ipynb
 ├── src/
+│   ├── __init__.py
 │   ├── data_loader.py
 │   ├── cleaning.py
 │   └── visualize.py
-├── visuals/                # Exported charts/plots
+├── visuals/                # Exported charts/plots (.png)
+├── app.py                 # Interactive Streamlit Recommendation Engine
 ├── requirements.txt
 ├── LICENSE
 └── README.md
@@ -103,9 +104,9 @@ netflix-data-analysis/
 
 ## 📁 Dataset
 
-- **Source:** [Kaggle – Netflix Movies and TV Shows](https://www.kaggle.com/) _(replace with your actual dataset link)_
-- **Format:** CSV
-- **Size:** _e.g. ~8,800 rows × 12 columns_
+- **Source:** [Kaggle – Netflix Movies and TV Shows](https://www.kaggle.com/datasets/shivamb/netflix-shows)
+- **Format:** CSV (`data/raw/netflix_titles.csv`)
+- **Size:** ~8,807 rows × 12 columns
 - **Fields include:** `title`, `type`, `director`, `cast`, `country`, `date_added`, `release_year`, `rating`, `duration`, `listed_in` (genres), `description`
 
 ---
@@ -120,7 +121,7 @@ cd netflix-data-analysis
 
 ### 2. Create a virtual environment
 ```bash
-python -m venv venv
+python3 -m venv venv
 source venv/bin/activate     # Windows: venv\Scripts\activate
 ```
 
@@ -133,37 +134,44 @@ pip install -r requirements.txt
 
 ## ▶️ Usage
 
-Launch Jupyter and run the notebooks in order:
-
+### 🚀 Run Interactive Streamlit Web App
+Launch the Netflix Match Engine recommendation app locally:
 ```bash
-jupyter notebook
+streamlit run app.py
 ```
 
-Or run analysis scripts directly:
-
+### 📓 Interactive Jupyter Notebooks
+Launch Jupyter and run notebooks in sequence:
 ```bash
-python src/data_loader.py
-python src/visualize.py
+jupyter notebook notebooks/
+```
+
+### 🛠️ Python Source Modules
+Execute modular pipeline scripts directly:
+```bash
+python3 -m src.data_loader
+python3 -m src.cleaning
 ```
 
 ---
 
 ## 🔬 Methodology
 
-1. **Data Cleaning** — Handle missing values, standardize date formats, split multi-value fields (cast, genres, countries).
+1. **Data Cleaning** — Handle missing values, standardize date formats, extract temporal features (`year_added`, `month_added`), and split multi-value fields.
 2. **Exploratory Analysis** — Aggregate and profile the data across content type, year, country, rating, and genre.
-3. **Visualization** — Build charts to communicate trends (line, bar, treemap, heatmap, word clouds).
-4. **Insight Extraction** — Summarize key findings and patterns.
+3. **Visualization** — Export high-resolution Seaborn and Matplotlib figures to `visuals/`.
+4. **Recommendation Engine** — Encode categorical attributes (`type`, `rating`, `listed_in`, `country`) into numerical vector space for Euclidean distance similarity retrieval.
 
 ---
 
 ## 🗺️ Roadmap
 
-- [ ] Clean and preprocess raw dataset
-- [ ] Perform full exploratory data analysis
-- [ ] Build interactive dashboard (Plotly / Streamlit)
-- [ ] Add sentiment analysis on descriptions
-- [ ] Deploy dashboard publicly
+- [x] Clean and preprocess raw dataset
+- [x] Reorganize repository into standard data science modular layout
+- [x] Perform full exploratory data analysis & export charts
+- [x] Build interactive Streamlit recommendation dashboard
+- [ ] Add NLP sentiment & TF-IDF similarity on title descriptions
+- [ ] Deploy Streamlit Community Cloud dashboard
 
 ---
 
@@ -176,8 +184,6 @@ Contributions are welcome!
 3. Commit your changes (`git commit -m "Add your feature"`)
 4. Push to the branch (`git push origin feature/your-feature`)
 5. Open a Pull Request
-
-Check the [issues page](https://github.com/harshitchauhann95/netflix-data-analysis/issues) for open tasks.
 
 ---
 
