@@ -20,6 +20,7 @@
 
 - [Overview](#-overview)
 - [Key Insights](#-key-insights)
+- [Visualizations & Data Gallery](#-visualizations--data-gallery)
 - [Tech Stack](#️-tech-stack)
 - [Project Structure](#-project-structure)
 - [Dataset](#-dataset)
@@ -51,11 +52,47 @@ The goal is to answer questions like:
 
 | Metric | Insight |
 |---|---|
-| 🎬 Content Split | 69.69% Movies / 30.31% TV Shows |
-| 📅 Peak Growth Year | Content additions peaked between 2018–2020 |
-| 🌎 Top Country | United States (followed by India & United Kingdom) |
-| 🔞 Most Common Rating | TV-MA (Adults) & TV-14 |
-| ⚡ Search Engine | Euclidean Distance Vector Space in Streamlit App |
+| 🎬 Content Split | **69.69% Movies** / **30.31% TV Shows** |
+| 📅 Peak Growth Era | Rapid expansion between **2016–2020** |
+| 🌎 Top Country | **United States** (followed by India & United Kingdom) |
+| 🔞 Most Common Rating | **TV-MA** (Adults) & **TV-14** |
+| ⚡ Search Engine | **Euclidean Distance Vector Space** in Streamlit App |
+
+---
+
+## 📊 Visualizations & Data Gallery
+
+<div align="center">
+
+### 1. Content Distribution (Movies vs TV Shows)
+![Content Type Distribution](visuals/content_type_distribution.png)
+*Movies comprise nearly 70% of Netflix's total catalog compared to 30% TV Shows.*
+
+---
+
+### 2. Content Release Trends Over Time
+![Release Year Trend](visuals/release_year_trend.png)
+*Content additions accelerated rapidly past 2015, reflecting Netflix's aggressive push into original productions.*
+
+---
+
+### 3. Top Content Producing Countries
+![Top Countries](visuals/top_countries.png)
+*The United States leads overall content production, followed by India's massive film inventory and the UK.*
+
+---
+
+### 4. Maturity Rating Breakdown
+![Rating Distribution](visuals/rating_distribution.png)
+*TV-MA and TV-14 ratings dominate both Movies and TV Shows, aligning with mature audience demographics.*
+
+---
+
+### 5. Top 10 Genres Across the Catalog
+![Top Genres](visuals/top_genres.png)
+*International Movies, Dramas, and Comedies represent the top three dominant categories.*
+
+</div>
 
 ---
 
