@@ -157,18 +157,6 @@ python src/visualize.py
 
 ---
 
-## 📊 Results & Visualizations
-
-<div align="center">
-
-<img src="https://raw.githubusercontent.com/harshitchauhann95/netflix-data-analysis/main/visuals/content_growth.png" width="400"/> <img src="https://raw.githubusercontent.com/harshitchauhann95/netflix-data-analysis/main/visuals/genre_distribution.png" width="400"/>
-
-</div>
-
-> Replace with your generated charts (content growth over time, genre distribution, top countries, rating breakdown, etc.).
-
----
-
 ## 🗺️ Roadmap
 
 - [ ] Clean and preprocess raw dataset
